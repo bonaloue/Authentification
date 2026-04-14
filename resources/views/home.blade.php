@@ -10,7 +10,10 @@
                             <h1 class="h3 mb-2">Mon profil</h1>
                             <p class="text-muted mb-0">Bienvenue sur votre espace personnel, {{ $user->prenom }}.</p>
                         </div>
-                        <a href="{{ route('profile.edit') }}" class="btn btn-primary btn-lg">Modifier mon profil</a>
+                        <div class="d-flex flex-column flex-sm-row gap-2">
+                            <a href="{{ route('profile.edit') }}" class="btn btn-primary btn-lg">Modifier mon profil</a>
+                            <a href="{{ route('password.change') }}" class="btn btn-outline-primary btn-lg">Changer le mot de passe</a>
+                        </div>
                     </div>
 
                     <div class="row g-4">

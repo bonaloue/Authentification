@@ -32,7 +32,10 @@
                         <button type="submit" class="btn btn-primary w-100">Se connecter</button>
                     </form>
 
-                    <p class="mt-4 text-center mb-0">Pas encore de compte ? <a href="{{ route('register') }}">Inscrivez-vous ici</a></p>
+                    <div class="mt-3 text-center">
+                        <a href="{{ route('password.forgot') }}">Mot de passe oublié ?</a>
+                    </div>
+                    <p class="mt-3 text-center mb-0">Pas encore de compte ? <a href="{{ route('register') }}">Inscrivez-vous ici</a></p>
                 </div>
             </div>
         </div>

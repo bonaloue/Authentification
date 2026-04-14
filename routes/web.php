@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,12 @@ Route::middleware('guest')->group(function () {
         return view('auth.login');
     })->name('login');
     Route::post('/login', [AuthController::class, 'login']); // AJOUTÉ : Pour traiter le formulaire
+
+    // Mot de passe oublié
+    Route::get('/password/forgot', [PasswordController::class, 'showForgotPasswordForm'])->name('password.forgot');
+    Route::post('/password/forgot', [PasswordController::class, 'sendResetLinkEmail'])->name('password.forgot.post');
+    Route::get('/password/reset/{token}', [PasswordController::class, 'showResetForm'])->name('password.reset');
+    Route::post('/password/reset', [PasswordController::class, 'reset'])->name('password.reset.post');
 });
 
 // --- ROUTES POUR LES UTILISATEURS CONNECTÉS ---
@@ -38,6 +45,10 @@ Route::middleware('auth')->group(function () {
     
     // Gestion spécifique de l'avatar
     Route::post('/profil/avatar', [ProfileController::class, 'updateAvatar'])->name('profile.avatar');
+
+    // Changement de mot de passe
+    Route::get('/password/change', [PasswordController::class, 'showChangePasswordForm'])->name('password.change');
+    Route::post('/password/change', [PasswordController::class, 'change'])->name('password.change.post');
 
     // Déconnexion (doit être en POST pour la sécurité CSRF)
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
