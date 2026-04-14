@@ -45,7 +45,7 @@
         </nav>
     @endunless
 
-    <main class="container py-5{{ request()->routeIs('login', 'register') ? ' d-flex align-items-center min-vh-100' : '' }}">
+    <main class="container py-5{{ request()->routeIs('login', 'register') ? ' d-flex justify-content-center align-items-center min-vh-100' : '' }}">
         @if(session('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ session('success') }}

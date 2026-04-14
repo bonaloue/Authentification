@@ -2,32 +2,44 @@
 
 @section('content')
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card shadow-sm mb-4">
-                <div class="card-body">
-                    <div class="d-flex align-items-center mb-4">
+        <div class="col-12 col-xl-10">
+            <div class="card shadow-sm mb-4 overflow-hidden">
+                <div class="card-body p-4">
+                    <div class="d-flex flex-column flex-md-row align-items-start justify-content-between gap-3 mb-5">
                         <div>
-                            <h1 class="h4 mb-0">Mon Profil</h1>
-                            <p class="text-muted mb-0">Bienvenue, {{ $user->prenom }}.</p>
+                            <h1 class="h3 mb-2">Mon profil</h1>
+                            <p class="text-muted mb-0">Bienvenue sur votre espace personnel, {{ $user->prenom }}.</p>
                         </div>
-                        <a href="{{ route('profile.edit') }}" class="btn btn-primary ms-auto">Modifier</a>
+                        <a href="{{ route('profile.edit') }}" class="btn btn-primary btn-lg">Modifier mon profil</a>
                     </div>
 
-                    <div class="row align-items-center g-4 mb-4">
-                        <div class="col-lg-6">
-                            <div class="bg-light rounded-3 p-4 h-100">
-                                <h2 class="h5 mb-3">Mes informations</h2>
-                                <p class="mb-3"><strong>Nom :</strong> {{ $user->nom }}</p>
-                                <p class="mb-3"><strong>Prénom :</strong> {{ $user->prenom }}</p>
-                                <p class="mb-3"><strong>Email :</strong> {{ $user->email }}</p>
-                                <p class="mb-0"><strong>Téléphone :</strong> {{ $user->telephone }}</p>
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <div class="bg-light rounded-4 p-4 h-100 profile-info-panel">
+                                <h2 class="h5 mb-4">Informations personnelles</h2>
+                                <div class="mb-3 profile-field">
+                                    <span class="text-muted d-block small">Nom</span>
+                                    <strong>{{ $user->nom }}</strong>
+                                </div>
+                                <div class="mb-3 profile-field">
+                                    <span class="text-muted d-block small">Prénom</span>
+                                    <strong>{{ $user->prenom }}</strong>
+                                </div>
+                                <div class="mb-3 profile-field">
+                                    <span class="text-muted d-block small">Email</span>
+                                    <strong>{{ $user->email }}</strong>
+                                </div>
+                                <div class="profile-field">
+                                    <span class="text-muted d-block small">Téléphone</span>
+                                    <strong>{{ $user->telephone }}</strong>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="border rounded-3 p-4 h-100 text-center">
+                        <div class="col-lg-5">
+                            <div class="bg-white border rounded-4 p-4 h-100 text-center profile-avatar-card">
                                 <h2 class="h5 text-uppercase text-muted mb-4">Photo de profil</h2>
                                 @if($user->avatar)
-                                    <img src="{{ Storage::url($user->avatar) }}" alt="Avatar" class="img-fluid rounded-circle mb-4" style="max-width: 180px;">
+                                    <img src="{{ Storage::url($user->avatar) }}" alt="Avatar" class="rounded-circle mb-4 profile-avatar">
                                 @else
                                     <div class="text-muted mb-4">Aucune photo de profil.</div>
                                 @endif

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-lg-6">
-            <div class="card shadow-sm">
+    <div class="row justify-content-center w-100">
+        <div class="col-12 col-sm-10 col-md-9 col-lg-6">
+            <div class="card shadow-sm auth-card mx-auto">
                 <div class="card-body p-4">
                     <h1 class="h4 mb-3 text-center">Inscription</h1>
 
